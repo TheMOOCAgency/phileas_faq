@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/phileas_faq/static/css/main.147b6482.chunk.css",
+    "main.js": "/phileas_faq/static/js/main.ff6e070c.chunk.js",
+    "main.js.map": "/phileas_faq/static/js/main.ff6e070c.chunk.js.map",
+    "runtime~main.js": "/phileas_faq/static/js/runtime~main.73c298c5.js",
+    "runtime~main.js.map": "/phileas_faq/static/js/runtime~main.73c298c5.js.map",
+    "static/js/2.c186094d.chunk.js": "/phileas_faq/static/js/2.c186094d.chunk.js",
+    "static/js/2.c186094d.chunk.js.map": "/phileas_faq/static/js/2.c186094d.chunk.js.map",
+    "index.html": "/phileas_faq/index.html",
+    "precache-manifest.cf0bfbe03b9ccca1e65fe4853cc0a437.js": "/phileas_faq/precache-manifest.cf0bfbe03b9ccca1e65fe4853cc0a437.js",
+    "service-worker.js": "/phileas_faq/service-worker.js",
+    "static/css/main.147b6482.chunk.css.map": "/phileas_faq/static/css/main.147b6482.chunk.css.map",
+    "static/media/icon.png": "/phileas_faq/static/media/icon.831c46b9.png",
+    "static/media/icon1.svg": "/phileas_faq/static/media/icon1.2a650b18.svg",
+    "static/media/icon2.svg": "/phileas_faq/static/media/icon2.37705f43.svg",
+    "static/media/icon3.svg": "/phileas_faq/static/media/icon3.46f58577.svg",
+    "static/media/index.css": "/phileas_faq/static/media/plus.43d39dbb.svg"
+  }
+}
