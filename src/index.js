@@ -3,10 +3,10 @@ import 'react-app-polyfill/stable'*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import icon from './icon.png'; 
-import icon1 from './icon/icon1.svg'; 
-import icon2 from './icon/icon2.svg'; 
-import icon3 from './icon/icon3.svg'; 
+import icon from './icon.png';
+import icon1 from './icon/icon1.svg';
+import icon2 from './icon/icon2.svg';
+import icon3 from './icon/icon3.svg';
 import Icon from '@material-ui/core/Icon';
 
 class App extends React.Component { //Début app ***************************************************************************
@@ -35,12 +35,12 @@ class App extends React.Component { //Début app *******************************
 
     render() {
         /* Gestion de la langue détection automatique du nombre de langue et attribution d'un index pour chacune **** */
-        let languageIndex = {};
+        /*let languageIndex = {};
         this.props.data.forEach((lData, index) => {
             languageIndex[lData.language] = index
         })
-        /* Gestion des données et du nombre de topic maximal  ***************************************************** */
-        const data = this.props.data[languageIndex[this.state.language]][this.state.language];
+         Gestion des données et du nombre de topic maximal  ***************************************************** */
+        const data = this.props.data['en'];
         let dataArray = [];
         let dataArrayOriginal = [];
         if (4 < data.length) {
@@ -66,61 +66,9 @@ class App extends React.Component { //Début app *******************************
 
         return (
             <div className="main">
-                <Header dataLanguage={this.props.data} changeLanguage={this.handleLanguage} />
                 <div className="contentWrapper">
                     <SearchFilter data={dataArrayOriginal} onScreen={this.state.topicOnScreen} handleChangeState={this.handleClick} searchKeyword={this.state.search} handleSearchBar={this.handleSearch} />
                     <ContentFaq data={dataArray} searchKeyword={this.state.search} />
-                </div>
-            </div>
-        );
-    }
-}   
-
-/* Composant de gestion du Header, gestion de la langue *********************************************************** */
-class Header extends React.Component { 
-    constructor(props) {
-        super(props);
-        this.handleHamMenu = this.handleHamMenu.bind(this)
-        this.handleCloseMenu = this.handleCloseMenu.bind(this)
-    }
-    handleHamMenu(e){
-        let element = e.target;
-        element.previousSibling.style.right = "0%"
-    }
-    handleCloseMenu(e){
-        let element = e.target;
-        element.parentElement.style.right = "-45%"
-    }
-    render() {
-        /* Gestion de la langue************************* */
-        const optLang = [];
-        this.props.dataLanguage.forEach((lang,i) => {
-            optLang.push(
-                < option key={lang.language+i} value={lang.language} > {lang.language} </option >
-            )
-        })
-        return (
-            <div className="header">
-                <div className="headWrapper">
-                    <a className="logo" href="/">
-                        <h1>
-                            <img src={icon} alt="Phileas"/>
-                        </h1>
-                    </a>
-                    <div className="rightSection">
-                        <a className="explore" href="/">
-                            Explorer
-                        </a>
-                        <form className="changeLang">
-                            <select onChange={e => { 
-                                this.props.changeLanguage(e.target.value);
-                                }}>
-                                {optLang}
-                            </select>
-                        </form>
-                        <div className="closeMenu" onClick={e => { this.handleCloseMenu(e) }}></div>
-                    </div>
-                    <div className="hamButton" onClick={e =>{this.handleHamMenu(e)}}></div>
                 </div>
             </div>
         );
@@ -212,7 +160,7 @@ class ContentFaq extends React.Component {
             datas.forEach((data,i) => {
                 data.content.forEach((topics,i) => {
                     //ici
-                    
+
                     topics.content.forEach((topic,a) => {
                         if (topic.question.toLowerCase().indexOf(this.props.searchKeyword.toLowerCase()) !== -1) { //Erreur d'index, voire optimisation
                             arrayDataToSend.push(
@@ -281,7 +229,7 @@ class SubContent extends React.Component {
                     <h3 className="subTopic">{subTopicName}</h3>
                     <QuestionAnswer nameTopic={this.props.nameTopic} data={contentFinal} onSearch={onSearch}/>
                 </div>
-               
+
             );
         }else{
             return (
@@ -289,7 +237,7 @@ class SubContent extends React.Component {
                     <h3 className="subTopic">{subTopicName}</h3>
                     <QuestionAnswer nameTopic={this.props.nameTopic} data={contentFinal} onSearch={onSearch}/>
                 </div>
-               
+
             );
         }
     }
@@ -430,9 +378,8 @@ class RenderingQuestions extends React.Component {
     }
 }
 /**Data test ******************************************************************************** */
-const dataTest = [
+const dataTest =
     {
-        language : 'fr',
         fr:[
             {
                 nameTopic: 'FAQ',
@@ -634,10 +581,8 @@ const dataTest = [
                     }
                 ]
             }
-        ]
-    },
-    {
-        language: 'en',
+        ],
+
         en: [
             {
                 nameTopic: 'FAQEN',
@@ -776,9 +721,8 @@ const dataTest = [
             }
         ]
     }
-    
-]
 /* Début du rendu *********************************************** */
+
 ReactDOM.render(
     <App data={dataTest}/>,
     document.getElementById('root')
