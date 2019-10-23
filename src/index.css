@@ -10,9 +10,7 @@ select {
     appearance: none;
     border: none;
 }
-body{
-  background-color: white!important;
-}
+
 .main{
   margin-bottom : 150px !important;
 }
@@ -169,6 +167,10 @@ body{
 .questionSection>div {
     border: none;
     box-shadow: none;
+    background-color : whitesmoke;
+}
+.questionSection>div>div {
+    background-color : whitesmoke;
 }
 
 .questionSection:nth-child(1) {

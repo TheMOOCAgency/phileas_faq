@@ -42,9 +42,9 @@ class MenuApp extends React.Component {
     }
     getQuestionId = () => {
       let urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.has("question_id")) {
+      if (urlParams.has("questionId")) {
         var topicOnSearch = 0;
-       this.props.data.map((data,index) => {if(data.content.find(subData => subData.content.some(subQuestion =>  subQuestion.questionId === urlParams.get("question_id")))) {topicOnSearch = index}});
+       this.props.data.map((data,index) => {if(data.content.find(subData => subData.content.some(subQuestion =>  subQuestion.questionId === urlParams.get("questionId")))) {topicOnSearch = index}});
         if(topicOnSearch => 0){
             this.props.changeTab(null,topicOnSearch)
         }
@@ -123,8 +123,8 @@ class QuestionAnswer extends React.Component {
             <div className="questionSection">
               {this.props.questionData.map((data,index)=>{
                 var topicOnSearch = '';
-                if (urlParams.has("question_id")) {
-                    topicOnSearch = urlParams.get("question_id")
+                if (urlParams.has("questionId")) {
+                    topicOnSearch = urlParams.get("questionId")
                   }
               return (
                 <div key={index} id={data.questionId} className='questionRow'>
