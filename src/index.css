@@ -11,10 +11,22 @@ select {
     border: none;
 }
 
+.main{
+  margin-bottom : 150px !important;
+}
 .header {
     border-bottom: 5px solid rgb(92, 183, 216)
 }
-
+.iconTopic{
+  max-width: 60px;
+}
+.menuTab{
+  max-width: 80%;
+  margin : 50px auto;
+}
+.MuiTab-wrapper{
+  align-self: end;
+}
 .headWrapper {
     width: 90%;
     margin: 20px auto;
@@ -59,18 +71,6 @@ select {
     text-align: center;
     font-size: 15px;
     border: 1px solid rgb(92, 183, 216);
-}
-
-.hamButton {
-    display: none;
-    background: url("./icon/menu.png") no-repeat;
-    background-size: contain;
-}
-
-.closeMenu {
-    display: none;
-    background: url("./icon/close.png") no-repeat;
-    background-size: contain;
 }
 
 .contentWrapper {
@@ -118,15 +118,14 @@ select {
 }
 
 .topic img {
-    width: 60px;
-    height: 100px;
+    max-width: 60px;
     opacity: 0.4;
     filter: grayscale(1);
     -webkit-filter: grayscale(1);
 }
 
 .topic img.selected {
-    width: 60px;
+    max-width: 60px;
     opacity: 1;
     filter: grayscale(0);
     -webkit-filter: grayscale(0);
@@ -155,13 +154,23 @@ select {
     font-weight: 100;
 }
 
-.row {
+.rowQuestionAnswer {
     padding-left: 20px;
 }
-
+.questionRow>*{
+  border : none;
+  box-shadow: none!important;
+}
 .questionSection {
     padding: 10px 0px;
-    border-top: 1px solid rgb(185, 185, 185);
+}
+.questionSection>div {
+    border: none;
+    box-shadow: none;
+    background-color : whitesmoke;
+}
+.questionSection>div>div {
+    background-color : whitesmoke;
 }
 
 .questionSection:nth-child(1) {
@@ -172,13 +181,13 @@ select {
     padding: 20px 0px;
     font-size: 18px;
     padding-left: 30px;
-    color: rgb(92, 183, 216);
+    color: #00A0E3;
     font-weight: 100;
+    cursor: pointer;
     background-size: 20px;
     background-position: 0px 20px;
     background-repeat: no-repeat;
     background-image: url("./icon/plus.svg");
-    cursor: pointer;
 }
 
 .question span {
@@ -186,8 +195,8 @@ select {
     font-style: italic;
 }
 
-.questionSection .questionIsClosed {
-    background-image: url("./icon/minus.svg");
+.Mui-expanded .question {
+    background-image: url("./icon/minus.svg")!important;
 }
 
 .response {
