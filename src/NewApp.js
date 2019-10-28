@@ -77,7 +77,6 @@ class MenuApp extends React.Component {
     }
 }
 class ContentFaq extends React.Component {
-
     render(){
       return (
       <div>
@@ -159,7 +158,7 @@ createMarkup(element) {
     render() {
         return (
             <div className="rowQuestionAnswer">
-                <h3> Recherche de:  <span className="searchKeyWord">"{this.props.searchKeyword}"</span> </h3>
+                <h3> Recherche de:  <span className="searchKeyWord">{this.props.searchKeyword}</span> </h3>
                 {this.props.data.length < 1 ?
                   (<p>Aucun Résultats</p>)
                 :
@@ -196,12 +195,13 @@ class NewApp extends React.Component { //Début app ****************************
     }
     //eventHandler ********************************************************
     handleSearch(keyword) {
+
         let numberOfResult = 0;
         if(keyword === ''){
           this.setState({ search: keyword, onSearch : false, searchData : [] })
         }else{
           let dataMatching = [];
-          this.props.data['en'].map((data,index)=>{
+          this.props.data[this.state.language].map((data,index)=>{
             data.content.map((contentData,index)=>{
               let subTopicToSend = []
               if(contentData.content.find((entrie)=>{
@@ -225,17 +225,18 @@ class NewApp extends React.Component { //Début app ****************************
         this.setState({ topicIndex: index })
     }
     render() {
+
         return (
             <div className="main">
                 <div className="contentWrapper">
-                    <MenuApp topicIndex={this.state.topicIndex} changeTab={this.handleTest} data={this.props.data['en']} handleChangeState={this.handleClick} searchKeyword={this.state.search} onSearch={this.state.onSearch} handleSearchBar={this.handleSearch} />
+                    <MenuApp topicIndex={this.state.topicIndex} changeTab={this.handleTest} data={this.props.data[this.state.language]} handleChangeState={this.handleClick} searchKeyword={this.state.search} onSearch={this.state.onSearch} handleSearchBar={this.handleSearch} />
                     {
                       this.state.onSearch ?
                         (
                           <DisplaySearch nmbSearch={this.state.numberOfResult} searchKeyword={this.state.search}  data={this.state.searchData} />
                         ):
                         (
-                          <ContentFaq topicIndex={this.state.topicIndex}  data={this.props.data['en']} searchKeyword={this.state.search} />
+                          <ContentFaq topicIndex={this.state.topicIndex}  data={this.props.data[this.state.language]} searchKeyword={this.state.search} />
                         )
                     }
                 </div>
