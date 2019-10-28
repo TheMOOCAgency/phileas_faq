@@ -195,7 +195,6 @@ class NewApp extends React.Component { //Début app ****************************
     }
     //eventHandler ********************************************************
     handleSearch(keyword) {
-
         let numberOfResult = 0;
         if(keyword === ''){
           this.setState({ search: keyword, onSearch : false, searchData : [] })
@@ -204,19 +203,18 @@ class NewApp extends React.Component { //Début app ****************************
           this.props.data[this.state.language].map((data,index)=>{
             data.content.map((contentData,index)=>{
               let subTopicToSend = []
-              if(contentData.content.find((entrie)=>{
-                  if(entrie.question.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 || entrie.response.toLowerCase().indexOf(keyword.toLowerCase()) !== -1){
-                      subTopicToSend.push(entrie)
+              let subTopicToSend2 = []
+              contentData.content.map((lastdata,index)=>{
+                    if(lastdata.question.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 || lastdata.response.toLowerCase().indexOf(keyword.toLowerCase()) !== -1){
+                      subTopicToSend.push(lastdata)
                       numberOfResult++
-                      return true
-                  }else {
-                    return false
-                  }
-              }
-              )){
+                          return true
+                      }else {
+                        return false
+                      }
+                },this)
                  dataMatching.push(subTopicToSend)
-                }
-            },this)
+              },this)
           },this)
           this.setState({ search: keyword,onSearch : true,searchData : dataMatching,numberOfResult : numberOfResult})
         }
